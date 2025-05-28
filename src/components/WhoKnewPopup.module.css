@@ -1,0 +1,126 @@
+/* src/components/WhoKnewPopup.module.css */
+
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.popupOverlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popupOverlay.open .popupContent {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.popupContent {
+  background-color: var(--color-neutral-accent, #505050); /* Dark neutral background */
+  color: var(--color-text-primary, #B0B0B0);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  position: fixed; /* Changed to fixed for better centering with transform */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease-in-out;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--color-text-primary, #B0B0B0);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 5px;
+  line-height: 1;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: var(--color-accent-1, #FF6B6B);
+  transform: rotate(90deg);
+}
+
+.popupTitle {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 1.8rem;
+  color: var(--color-accent-2, #6BFFB0); /* Playful accent color */
+  margin-bottom: 15px;
+}
+
+.popupBody {
+  font-family: var(--font-secondary, 'Lato', sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.popupBody p {
+  margin-bottom: 10px;
+}
+
+.popupBody strong {
+  color: var(--color-accent-1, #FF6B6B);
+}
+
+.popupFooter {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .popupContent {
+    padding: 25px 30px;
+    max-width: 90vw;
+  }
+
+  .popupTitle {
+    font-size: 1.5rem;
+  }
+
+  .popupBody {
+    font-size: 0.95rem;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popupContent {
+    padding: 20px;
+  }
+  .popupTitle {
+    font-size: 1.3rem;
+  }
+  .popupBody {
+    font-size: 0.9rem;
+  }
+}

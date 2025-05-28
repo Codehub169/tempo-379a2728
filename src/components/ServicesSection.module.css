@@ -1,0 +1,112 @@
+.servicesSection {
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background-color: var(--color-background);
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 3rem; /* More space before the grid */
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem; /* Gap between grid items */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.serviceItem {
+  background-color: var(--color-neutral-accent-dark, #222);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-neutral-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s ease-out forwards;
+  /* Stagger animation for items - can be done via JS or nth-child if preferred */
+}
+
+/* Example of staggered animation using nth-child, if not handled by JS intersection observer */
+.serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+
+.serviceItem:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--color-accent1);
+}
+
+.serviceIcon {
+  width: 60px; /* Adjust size as needed */
+  height: 60px;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent2); /* Default color for SVG if it uses currentColor */
+  /* For SVGs as <img>, ensure they have appropriate fill/stroke or use filter for color */
+}
+
+.serviceName {
+  font-family: var(--font-primary);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.serviceMicrocopy {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+  color: var(--color-text-primary-muted, #a0a0a0); /* Slightly muted text */
+  flex-grow: 1; /* Helps align items if text lengths vary significantly */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .servicesSection {
+    padding: var(--section-padding-y-mobile) var(--section-padding-x-mobile);
+  }
+
+  .title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: 2rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+    gap: 1.5rem;
+  }
+
+  .serviceItem {
+    padding: 1.5rem 1rem;
+  }
+
+  .serviceIcon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceName {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+  .serviceMicrocopy {
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  }
+}

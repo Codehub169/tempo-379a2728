@@ -1,0 +1,31 @@
+<svg width="220" height="100" viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* Define font styles for the logo text */
+    .hueneu-logo-text {
+      font-family: 'Poppins', sans-serif; /* Use Poppins font */
+      font-size: 48px; /* Set font size */
+      font-weight: 600; /* Set font weight */
+      letter-spacing: 0.5px;
+    }
+    /* Style for the 'hue' part of the logo */
+    #logo-hue {
+      fill: #FF6B6B; /* Coral Red - Accent 1 from style guide */
+    }
+    /* Style for the 'neu' part of the logo */
+    #logo-neu {
+      fill: #B0B0B0; /* Light Grey - Primary Text from style guide */
+    }
+  </style>
+  
+  <!-- Text element for 'hue' part, positioned and styled -->
+  <text x="10" y="65" class="hueneu-logo-text" id="logo-hue">hue</text>
+  <!-- Text element for 'neu' part, positioned relative to 'hue' and styled -->
+  <text x="105" y="65" class="hueneu-logo-text" id="logo-neu">neu</text>
+
+  <!-- 
+    This SVG is structured for animation. 
+    The actual animation (e.g., fade-in, reveal) will be controlled 
+    by CSS or JavaScript in the HeroSection component.
+    Example: #logo-hue and #logo-neu can be targeted to animate opacity or position.
+  -->
+</svg>

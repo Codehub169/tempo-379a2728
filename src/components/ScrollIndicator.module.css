@@ -1,0 +1,80 @@
+@keyframes scrollAnimation {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes subtleBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 10;
+  opacity: 0; /* Initial state for JS animation */
+  animation: subtleBob 2s ease-in-out infinite 0.5s; /* Add subtle bobbing animation */
+}
+
+.mouse {
+  width: 28px;
+  height: 45px;
+  border: 2px solid var(--color-text-primary);
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.scroller {
+  width: 3px;
+  height: 8px;
+  background-color: var(--color-text-primary);
+  border-radius: 2px;
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  transform: translateX(-50%);
+  animation: scrollAnimation 1.8s infinite;
+}
+
+.scrollText {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scrollIndicator:hover .mouse,
+.scrollIndicator:hover .scroller,
+.scrollIndicator:hover .scrollText {
+  border-color: var(--color-accent-1); /* Example hover color */
+  background-color: var(--color-accent-1);
+  color: var(--color-accent-1);
+}
+
+
+@media (max-width: 768px) {
+  .scrollIndicator {
+    bottom: 1.5rem;
+  }
+  .mouse {
+    width: 24px;
+    height: 40px;
+  }
+  .scrollText {
+    font-size: 0.7rem;
+  }
+}

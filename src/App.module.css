@@ -1,0 +1,65 @@
+/* src/App.module.css */
+
+/* Main container for the entire application */
+.appContainer {
+  background-color: #1A1A1A; /* Deep Charcoal - from style guide */
+  color: #B0B0B0; /* Light Grey - for primary text */
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif; /* Body text font */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Placeholder header styling */
+.appHeader {
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid #505050; /* Neutral Accent for separation */
+}
+
+.appHeader h1 {
+  font-family: 'Poppins', sans-serif; /* Heading font */
+  font-size: 3rem;
+  color: #FF6B6B; /* Accent 1 (Coral Red) for the brand name */
+  margin-bottom: 0.5rem;
+}
+
+.appHeader p {
+  font-size: 1.2rem;
+  color: #B0B0B0; /* Light Grey */
+}
+
+/* Placeholder main content styling */
+.mainContent {
+  flex-grow: 1; /* Allows this section to take available space */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Placeholder footer styling */
+.appFooter {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #505050; /* Neutral Accent for separation */
+  font-size: 0.9rem;
+  color: #B0B0B0; /* Light Grey */
+}
+
+/* Basic responsive adjustments */
+@media (max-width: 768px) {
+  .appHeader h1 {
+    font-size: 2.5rem;
+  }
+
+  .appHeader p {
+    font-size: 1rem;
+  }
+
+  .mainContent,
+  .appHeader,
+  .appFooter {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
